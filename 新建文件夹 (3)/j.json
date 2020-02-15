@@ -1,0 +1,41 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 7,
+    "data": [{
+            "id": "1",
+            "user_name": "",
+            "user_state": "登录"
+        },
+        {
+            "id": "2",
+            "user_name": "",
+            "user_state": "离线"
+        },
+        {
+            "id": "3",
+            "user_name": "",
+            "user_state": "封禁"
+        },
+        {
+            "id": "4",
+            "user_name": "",
+            "user_state": ""
+        },
+        {
+            "id": "5",
+            "user_name": "",
+            "user_state": ""
+        },
+        {
+            "id": "6",
+            "user_name": "",
+            "user_state": ""
+        },
+        {
+            "id": "7",
+            "user_name": "",
+            "user_state": ""
+        }
+    ]
+}

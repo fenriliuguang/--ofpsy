@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="f.css">
+    <link rel="stylesheet" href="icon.css">
+    <link rel="stylesheet" href="layui\css\layui.css">
+</head>
+
+<body>
+    <div id="tn-background">
+        <div id="top-nav">
+            <ul id="ulc">
+                <li class="top">
+                    <a class="sign" href="javascript:">注册</a>
+                </li>
+                <li id="line" class="top"></li>
+                <li class="top">
+                    <a class="login" href="javascript:">登录</a>
+                </li>
+                <li class="ms ms-s"><em class="iconfont ii" style="font-size: 40px;line-height: 40px;">&#xe61c;</em></li>
+                <li class="ms">
+                    <!--
+                    搜索功能实现，这里的属性我没有设置
+                -->
+                    <form action="search.html" method="GET" target="_blank">
+                        <!--
+                            功能需求，提交后建立符合搜索内容的列表，提供书籍
+                            搜索结果。包括书籍所有数据，书籍数量。单独建立一
+                            个变量保存搜索字段内容，并且跳转到页面search.html
+                            上
+                        -->
+                        <input class="in" style="width: 250px;padding: 0 20px;" type="text" name="keyWords">
+                        <input style="visibility: hidden;width: 0;" id="in" type="submit">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="head">
+
+    </div>
+
+</body>
+<script src="jQuery.min.js"></script>
+
+<script src="layer-v3.1.1\layer\layer.js"></script>
+<script src="jquery.form.js"></script>
+
+<script src="layui\layui.js"></script>
+<script src="f.js"></script>
+
+</html>

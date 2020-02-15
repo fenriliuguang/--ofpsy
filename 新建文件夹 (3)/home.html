@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="icon.css">
+    <link rel="stylesheet" href="f.css">
+    <link rel="stylesheet" href="layui\css\layui.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="layui-nav aaa">
+
+        <li class="layui-nav-item">
+            <a href="">{.username}</a>
+            <!--头像还需要吗（笑哭-->
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;">修改信息</a></dd>
+                <dd><a href='javascript:if (confirm("确定退出登录么？")){location="/exit"}'>退出登录</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="main.html">首页</a>
+            <!--首页跳转-->
+        </li>
+        <li class="layui-nav-item">
+            <a href="home.html">个人主页</a>
+        </li>
+
+        <li class="layui-nav-item">
+            <a href="collect.html">我的收藏</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="writer.html">作家专区</a>
+        </li>
+    </ul>
+    <div id="work_area">
+
+        <div id="collect"></div>
+        <div id="writer_zone"></div>
+    </div>
+</body>
+<script src="jQuery.min.js"></script>
+<script src="layer-v3.1.1\layer\layer.js"></script>
+<script src="jquery.form.js"></script>
+<script src="layui\layui.js"></script>
+<script src="f.js"></script>
+
+</html>
