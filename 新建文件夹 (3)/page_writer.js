@@ -22,9 +22,9 @@ function render(count) {
                 '</div></div>'
         }
     })
-    $("#cont").html(text);
+    $("#works").html(text);
 }
-
+//删除功能
 function bookRemove() {
     $(".iconfont_a").click(function() {
         var id = $(this).siblings().first().html(); //被删除于指定存储位置的书籍
@@ -45,7 +45,7 @@ var page_num = 1;
 
 $.ajax({
     type: "GET",
-    url: "/collect/?page=1",
+    url: "/writer/?page=1",
     async: false,
     success: function(data) {
         page_num = data.num;
@@ -56,11 +56,13 @@ $.ajax({
 })
 
 
+
+
 layui.use('laypage', function() {
     var laypage = layui.laypage;
     console.log("全局变量page_num : " + page_num);
     laypage.render({
-        elem: 'h_h',
+        elem: 'w_h',
         count: page_num, //100, //co, //数据总数
         limit: 8, //每页限制数据数量
         jump: function(obj, first) {

@@ -24,6 +24,8 @@ div {
 .bc {
     background-color: rgb(68, 68, 68);
     z-index: 1000;
+    position: absolute;
+    width: 120px;
 }
 
 #top-nav {
@@ -180,7 +182,7 @@ a {
 }
 
 .if {
-    margin: 0 0 0 200px;
+    margin: 0 0 0 100px;
 }
 
 .ii {
@@ -204,7 +206,7 @@ a {
 }
 
 .ms-s {
-    margin: 0 112px 0 0;
+    margin: 0 30px 0 0;
 }
 
 #news {
@@ -248,6 +250,10 @@ a {
     border-radius: 3px;
 }
 
+.books:hover {
+    background-color: snow;
+}
+
 .b_img {
     float: left;
     width: 100px;
@@ -281,8 +287,8 @@ a {
 
 #work_area_w {
     position: relative;
-    width: 1100px;
-    left: calc(50% - 1200px/2);
+    width: 1122px;
+    left: calc(50% - 1222px/2);
     height: 1000px;
 }
 
@@ -307,4 +313,8 @@ a {
     width: 1200px;
     background-color: rgb(68, 68, 68);
     left: calc(50% - 1200px/2);
+}
+
+#works {
+    background-color: whitesmoke;
 }

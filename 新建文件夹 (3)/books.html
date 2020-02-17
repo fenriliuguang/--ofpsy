@@ -15,6 +15,15 @@
     <div id="tn-background">
         <div id="top-nav">
             <ul id="ulc">
+                <!--{{if .IsLogin}}
+                <li class="top">
+                    <a href="/selfhome">我的主页</a>
+                </li>
+                <li id="line" class="top"></li>
+                <li class="top">
+                    <a title="点击退出登录" href='javascript:if (confirm("确定退出登录么？")){location="/exit"}'>{.username}</a>
+                </li>
+                {{else}}-->
                 <li class="top">
                     <a class="sign" href="javascript:">注册</a>
                 </li>
@@ -22,6 +31,7 @@
                 <li class="top">
                     <a class="login" href="javascript:">登录</a>
                 </li>
+                <!--{{end}}-->
                 <li class="ms ms-s"><em class="iconfont ii" style="font-size: 40px;line-height: 40px;">&#xe61c;</em></li>
                 <li class="ms">
                     <!--
@@ -34,7 +44,7 @@
                             个变量保存搜索字段内容，并且跳转到页面search.html
                             上
                         -->
-                        <input class="in" style="width: 250px;padding: 0 20px;" type="text" name="keyWords">
+                        <input class="in" style="width: 250px;padding: 0 20px;" type="text" name="keyWords" placeholder="请搜索书籍">
                         <input style="visibility: hidden;width: 0;" id="in" type="submit">
                     </form>
                 </li>
@@ -42,9 +52,7 @@
         </div>
     </div>
     <div id="head">
-
     </div>
-
 </body>
 <script src="jQuery.min.js"></script>
 

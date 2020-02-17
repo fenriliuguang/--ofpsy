@@ -172,7 +172,7 @@ $(document).ready(function() {
     $(".bc").hide()
     $(".lc").mouseover(
         function() {
-            $(this).children().children().show();
+            $(".bc").show();
         }
     )
     $(".lc").mouseleave(

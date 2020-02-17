@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="icon.css">
     <link rel="stylesheet" href="f.css">
-    <link rel="stylesheet" href="layui-v2.5.6\layui-v2.5.6\layui\css\layui.css">
+    <link rel="stylesheet" href="layui\css\layui.css">
     <title>Document</title>
 </head>
 
@@ -15,63 +15,7 @@
     <div id="tn-background">
         <div id="pin-nav" class="">
             <ul id="ulc">
-                <li>
-                    <div class="left">玄幻</div>
-                </li>
-                <li>
-                    <div class="left">奇幻</div>
-                </li>
-                <li>
-                    <div class="left">武侠</div>
-                </li>
-                <li>
-                    <div class="left">仙侠</div>
-                </li>
-                <li class="lc">
-                    <div>
-                        <div class="left"><em class=""></em> 全部分类</div>
-                        <div class="bc">
-
-                            <div class="right">都市</div>
-
-
-                            <div class="right">现实</div>
-
-
-                            <div class="right">军事</div>
-
-
-                            <div class="right">历史</div>
-
-
-                            <div class="right">游戏</div>
-
-
-                            <div class="right">体育</div>
-
-
-                            <div class="right">科幻</div>
-
-
-                            <div class="right">悬疑</div>
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <!--
-                    功能需求：提供书籍
-                            搜索结果。包括书籍所有数据，书籍数量。单独建立一
-                            个变量保存搜索字段内容，页面不跳转，但是刷新页面
-                -->
-                    <form class="if" action="" method="GET">
-                        <input class="in" style="width: 250px;padding: 0 20px;" type="text" name="keyWords" placeholder="{ //这里是已保存的搜索字段内容 }">
-
-                        <input id="in" type="submit" style="visibility: hidden;width: 0;">
-                    </form>
-                </li>
-                <li><em class="iconfont ii" style="font-size: 40px;line-height: 40px;">&#xe61c;</em></li>
-                {{if .IsLogin}}
+                <!--{{if .IsLogin}}
                 <li class="top">
                     <a href="/selfhome">我的主页</a>
                 </li>
@@ -79,7 +23,7 @@
                 <li class="top">
                     <a title="点击退出登录" href='javascript:if (confirm("确定退出登录么？")){location="/exit"}'>{.username}</a>
                 </li>
-                {{else}}
+                {{else}}-->
                 <li class="top">
                     <a class="sign" href="javascript:">注册</a>
                 </li>
@@ -87,15 +31,100 @@
                 <li class="top">
                     <a class="login" href="javascript:">登录</a>
                 </li>
-                {{end}}
+                <!--{{end}}-->
+                <li class="ms ms-s"><em class="iconfont ii" style="font-size: 40px;line-height: 40px;">&#xe61c;</em></li>
+                <li class="ms">
+                    <!--
+                    搜索功能实现，这里的属性我没有设置
+                -->
+                    <form id="if" class="if" action="" method="GET">
+                        <input id="searchPut" class="in" style="width: 250px;padding: 0 20px;" type="text" name="keyWords" placeholder="搜索书籍">
+                        <button id="in" type="submit" style="visibility: hidden;width: 0;">
+                </form>
+                </li>
+                <li>
+                    <div class="left button_search">玄幻</div>
+                </li>
+                <li>
+                    <div class="left button_search">奇幻</div>
+                </li>
+                <li>
+                    <div class="left button_search">武侠</div>
+                </li>
+                <li>
+                    <div class="left button_search">仙侠</div>
+                </li>
+                <li class="lc">
+                    <div>
+                        <div class="left"><em class=""></em> 全部分类</div>
+                        <div class="bc">
+
+                            <div class="right button_search">都市</div>
+
+
+                            <div class="right button_search">现实</div>
+
+
+                            <div class="right button_search">军事</div>
+
+
+                            <div class="right button_search">历史</div>
+
+
+                            <div class="right button_search">游戏</div>
+
+
+                            <div class="right button_search">体育</div>
+
+
+                            <div class="right button_search">科幻</div>
+
+
+                            <div class="right button_search">悬疑</div>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="left home">首页</div>
+                </li>
+                
             </ul>
+        </div>
+    </div>
+    <div id="work_area">
+        <div id="history">
+            <p id="out" style="font-size: 40px;padding: 20px;position: absolute;">搜索结果</p>
+            <div id="cont" style="float: left; height: 620px;margin: 0 0 50px 0;width: 1100px;">
+
+            </div>
+            <div id="h_h"></div>
         </div>
     </div>
 </body>
 <script src="jQuery.min.js"></script>
+
+<script>
+    
+    $(".button_search").click(function(){
+        $("#searchPut")[0].value = $(this).html();
+        $("#in").trigger('click');
+    })
+    $(".home").click(function(){
+        window.location.href = 'main.html';
+    })
+</script>
 <script src="layer-v3.1.1\layer\layer.js"></script>
 <script src="jquery.form.js"></script>
 <script src="layui\layui.js"></script>
 <script src="f.js"></script>
-
+<script src="page_search.js"></script>
+<script>
+    if(localStorage.getItem("searchWord") != (undefined||''||null)){
+        console.log(localStorage.getItem("searchWord"));
+        $("#searchPut")[0].value = localStorage.getItem("searchWord");
+        localStorage.removeItem("searchWord");
+        $("#in").trigger('click');
+    }
+</script>
 </html>

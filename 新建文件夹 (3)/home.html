@@ -12,10 +12,8 @@
 
 <body>
     <ul class="layui-nav aaa">
-
         <li class="layui-nav-item">
             <a href="">{.username}</a>
-            <!--头像还需要吗（笑哭-->
             <dl class="layui-nav-child">
                 <dd><a href="javascript:;">修改信息</a></dd>
                 <dd><a href='javascript:if (confirm("确定退出登录么？")){location="/exit"}'>退出登录</a></dd>
@@ -37,9 +35,13 @@
         </li>
     </ul>
     <div id="work_area">
-
-        <div id="collect"></div>
-        <div id="writer_zone"></div>
+        <div style="margin: 100px;">
+            <!--
+                后面渲染一下量值。
+            -->
+            <p>我收藏的书籍数量：</p>
+            <p>我创作的书籍数量：</p>
+        </div>
     </div>
 </body>
 <script src="jQuery.min.js"></script>
