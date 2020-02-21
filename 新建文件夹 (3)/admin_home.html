@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="f.css">
     <link rel="stylesheet" href="layui\css\layui.css">
 </head>
 
@@ -23,7 +24,7 @@
                         {{.adminName}}
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="">更改密码</a></dd>
+                        <dd><a id="alter" href="javasrcipt:;">更改密码</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="">退出登录</a></li>
@@ -99,6 +100,7 @@
     </div>
     <script src="layui\layui.js"></script>
     <script src="jQuery.min.js"></script>
+    <script src="jquery.form.js"></script>
     <script>
         //JavaScript代码区域
         layui.use('element', function() {
@@ -108,9 +110,10 @@
         layui.use('form', function() {
             var form = layui.form;
             form.on('submit(put)', function(data) {
+                console.log(data.field)
                 $.ajax({
                     type: "GET",
-                    url: "", //提交路径
+                    url: "/main.html/", //提交路径
                     data: data.field,
                     success: function(data) {
                         if (data.code == 0) {
@@ -121,10 +124,11 @@
                         }
                     }
                 })
-                return false;
+                return false
             });
         });
     </script>
+    <script src="alter.js"></script>
 </body>
 
 </html>

@@ -37,14 +37,14 @@
                     <!--
                     搜索功能实现，这里的属性我没有设置
                 -->
-                    <form action="search.html" method="GET" target="_blank">
+                    <form id="for_search" action="search.html" method="GET" target="_blank">
                         <!--
                             功能需求，提交后建立符合搜索内容的列表，提供书籍
                             搜索结果。包括书籍所有数据，书籍数量。单独建立一
                             个变量保存搜索字段内容，并且跳转到页面search.html
                             上
                         -->
-                        <input class="in" style="width: 250px;padding: 0 20px;" type="text" name="keyWords" placeholder="请搜索书籍">
+                        <input id="ne" class="in" style="width: 250px;padding: 0 20px;" type="text" name="keyWords" placeholder="请搜索书籍">
                         <input style="visibility: hidden;width: 0;" id="in" type="submit">
                     </form>
                 </li>
@@ -159,11 +159,21 @@
                 <!--
                     这里是轮播图，我现在只是测试用
                 -->
-                <div>条目1</div>
-                <div>条目2</div>
-                <div>条目3</div>
-                <div>条目4</div>
-                <div>条目5</div>
+                <div><img class="c_img" src="180.jpg" alt="">
+                    <span style="display: none;">{.id}</span>
+                </div>
+                <div><img class="c_img" src="180.jpg" alt="">
+                    <span style="display: none;">{.id}</span>
+                </div>
+                <div><img class="c_img" src="180.jpg" alt="">
+                    <span style="display: none;">{.id}</span>
+                </div>
+                <div><img class="c_img" src="180.jpg" alt="">
+                    <span style="display: none;">{.id}</span>
+                </div>
+                <div><img class="c_img" src="180.jpg" alt="">
+                    <span style="display: none;">{.id}</span>
+                </div>
             </div>
         </div>
         <div id="news">
@@ -174,13 +184,66 @@
         </div>
     </div>
     <div id="ranking">
-        <!--完本排名-->
-        <div class="rank" id="reading">
-            <!--样式示例-->
+        <div id="rank">
+            <p style="font-size: 30px;background-color: white;">收藏排行</p>
+            <!--排行第一的专门分栏-->
+            <div id="first">
+                <div style="float: left; width:50%;height: 530px;padding: 20px;background-color: white;">
+                    <div id="img">
+                        <img id="pic" src="180.jpg" alt="">
+                    </div>
+                    <div id="books_information_x">
+                        <p id="name_b">{.name}</p>
+                        <p id="bookId" style="display: none;">{.id}</p>
+                        <p id="detail"><span>{.writer}&nbsp;&nbsp;&nbsp;著</span><span>&nbsp;&nbsp;&nbsp;{.genres}</span></p>
+                        <p style="margin: 93px 0 0 0;"><em style="margin: 40px;" class="iconfont_b">&#xe632;</em><span class="layui-btn layui-btn-lg layui-btn-warm h1">点击查看</span></p>
+                    </div>
+                    <div style="float: left;width: 100%;padding: 30px 0 0 0;">{.introduction}</div>
+                </div>
+            </div>
+            <div id="d_line"></div>
+            <!--其他排行位-->
+            <!--样式设计不一样，慎用循环-->
+            <div id="others">
+                <!--第二第三名-->
+                <p class="others"><em class="font">&#xe6d9;</em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span></p>
+                <p class="others"><em class="font">&#xe6da;</em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span></p>
+                <!--第四至第十四名-->
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+                <p class="others">
+                    <em class="font" style="margin: 0 15px;"></em><span style="display: none;">{.id}</span><span style="color: teal;">[{.genres}]</span>&nbsp;<strong>{.name}</strong><span style="float: right;color: teal;margin: 15px 0 0 0;">{.writer}</span>
+                </p>
+            </div>
         </div>
-        <div class="rank" id="points"></div>
-        <!--连载推荐-->
-        <div class="rank" id="serializing"></div>
     </div>
     <div id="footer">
         <div style="width: 1100px;background-color: rgb(68, 68, 68);float: left;padding: 0 50px 0 50px;">
@@ -196,6 +259,32 @@
         localStorage.setItem("searchWord", content);
         console.log(localStorage.getItem("searchWord"));
         window.location.href = 'search.html';
+    })
+</script>
+<script>
+    $("#for_search").submit(function(e) {
+        e.preventDefault();
+        var content = $("#ne")[0].value;
+        localStorage.setItem("searchWord", content);
+        console.log(localStorage.getItem("searchWord"));
+        window.location.href = 'search.html';
+    })
+</script>
+<script>
+    //这里是跳转页面
+    $(".c_img").click(function() {
+        var x = $(this).siblings().first().html();
+        location.href = '/book/' + x;
+    })
+    $(".others").click(function() {
+        var id = $(this).find("span:eq(0)").html();
+        console.log(id);
+        location.href = '/book/' + id;
+    })
+    $(".h1").click(function() {
+        var Id = $("#bookId").html();
+        console.log(Id);
+        location.href = '/book/' + Id;
     })
 </script>
 <script src="layer-v3.1.1\layer\layer.js "></script>

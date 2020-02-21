@@ -13,7 +13,8 @@ function render(count) {
                 '<div class="books">' +
                 '<img class="b_img" src="' + n.Picture + '" alt="">' +
                 '<div class="b_p">' +
-                '<p class="b_name">' + n.Name + '</p>' +
+                '<p class="b_name">' + n.Name + '<em style="display: none;">' + n.Id + '</em>' +
+                '<em title="点击收藏" class="iconfont_a btn" style="float: right;">&#xe605;</em></p>' +
                 '<p class="b_s"><span class="writer">' +
                 n.Writer + '&nbsp;著</span>' +
                 '<span class="point">&nbsp;&nbsp;' + n.Genres + '</span></p>' +
@@ -22,6 +23,35 @@ function render(count) {
         }
     })
     $("#cont").html(text);
+    $(".books").click(function() {
+        var id = $(this).find("em:eq(0)").html();
+        location.href = '/book/' + id;
+    })
+    $(".btn").click(function(e) {
+        e.stopPropagation; //阻止父元素事件冒泡
+        if ($("li").is("#userId")) {
+            var userId = $("#userId").html();
+            var bookId = $(this).siblings().html();
+            /*
+                添加收藏夹功能
+            */
+            $.ajax({
+                url: "", //操作地址
+                data: {
+                    userId: userId,
+                    bookId: bookId
+                },
+                dataType: "json",
+                success: function(data) {
+                    if (data.code == 1) {
+                        alert("添加成功！");
+                    } else {
+                        alert("已在收藏夹中");
+                    }
+                }
+            })
+        }
+    })
 }
 var page_num = 1;
 
@@ -30,11 +60,11 @@ $("#if").submit(function(e) {
     e.preventDefault();
     var data_put = '';
     console.log($("#if").serialize() + '&page=' + 1);
-    data_put = $("#if").serialize() + '&page=';
+    data_put = $("#if").serialize();
     $.ajax({
         type: "GET",
-        url: "/search.html/", //提交地址
-        data: data_put + 1,
+        url: "/search.html/?page=1", //提交地址
+        data: data_put,
         async: false,
         success: function(data) {
             if (data.code == 1) {
@@ -54,7 +84,7 @@ $("#if").submit(function(e) {
             limit: 8, //每页限制数据数量
             jump: function(obj, first) {
                 if (!first) {
-                    $.get({ url: "/search.html/" }, data_put + obj.curr, function(data) {
+                    $.get({ url: "/search.html/?page=" + obj.curr }, data_put, function(data) {
                         render(data.novel);
                     })
                 }

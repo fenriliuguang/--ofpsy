@@ -14,10 +14,9 @@
     <ul class="layui-nav aaa">
 
         <li class="layui-nav-item">
-            <a id="username" href="">{.username}</a>
-            <!--头像还需要吗（笑哭-->
+            <a href="javascript:;">{.username}</a>
             <dl class="layui-nav-child">
-                <dd><a href="javascript:;">修改信息</a></dd>
+                <dd><a id="alter" href="javascript:;">修改密码</a></dd>
                 <dd><a href='javascript:if (confirm("确定退出登录么？")){location="/exit"}'>退出登录</a></dd>
             </dl>
         </li>
@@ -52,5 +51,6 @@
 <script src="layui\layui.js"></script>
 <script src="f.js"></script>
 <script src="page.js"></script>
+<script src="alter.js"></script>
 
 </html>

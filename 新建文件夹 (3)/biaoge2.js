@@ -8,45 +8,26 @@ layui.use('table', function() {
     table.render({
         elem: '#demo',
         height: 700,
-        url: 'j.json', //数据接口,假数据
+        url: '/admin_user',
         page: true, //开启分页
-        /*
-        返回数据格式：json
-        {
-          "code": 0,
-          "msg": "",
-          "count": ,//数据总数
-          "data": [
-              {
-                  "id":"",
-                  "novel_name":"",
-                  "novel_writer":"",
-                  "novel_genre":"",
-                  "novel_state":""
-              },
-              { ... },
-              { ... },
-              ...
-          ]
-        } 
-        */
-        limit: 20,
+        limits: [10],
+        limit: 10,
         cols: [
             [ //表头
                 {
-                    field: 'id',
+                    field: 'Id',
                     title: 'ID',
                     width: 100,
                     sort: true,
                     fixed: 'left'
                 }, {
-                    field: 'user_name',
+                    field: 'Username',
                     title: '用户名',
                     width: 150,
                 }, {
-                    field: 'user_state',
-                    title: '状态',
-                    width: 100,
+                    field: 'Genre',
+                    title: '类型(1: 普通用户  2: 管理员)',
+                    width: 300,
                     sort: true
                 }, {
                     fixed: 'right',
@@ -70,36 +51,12 @@ layui.use('table', function() {
             $.post({
                 url: "/" //向该地址的服务程序发送需要从数据库删除的用户id
             }, {
-                remove_id: data.id
+                remove_id: data.Id
             }, function(data) {
                 if (data.code == 1) {
                     alert("删除成功")
                 }
             });
-        } else if (layEvent === 'edit') {
-            console.log("误触");
-            $(this).hide();
-            $.post({
-                url: "/" //编辑数据库地址
-            }, {
-                change_id: data.id, //需要修改数据的用户的id
-                change_genre: data.novel_genre,
-                change_state: data.novel_state,
-                change_introduction: data.novel_introduction,
-            }, function(data) {
-                if (data.code == 1) {
-                    alert("修改成功");
-                }
-            })
         }
-    });
-    $(".hide_button").hide();
-    table.on('edit(users)', function(obj) {
-        console.log(obj.value);
-        console.log(obj.field);
-        console.log(obj.tr);
-        var tr = obj.tr;
-
-        $(tr).first().children().last().children().children().first().show();
     });
 });

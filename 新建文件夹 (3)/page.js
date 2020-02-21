@@ -23,10 +23,15 @@ function render(count) {
         }
     })
     $("#cont").html(text);
+    $(".books").click(function() {
+        var id = $(this).find("em:eq(0)").html();
+        location.href = '/book/' + id;
+    })
 }
 
 function bookRemove() {
-    $(".iconfont_a").click(function() {
+    $(".iconfont_a").click(function(e) {
+        e.stopPropagation(); //阻止事件冒泡
         var id = $(this).siblings().first().html(); //被删除于指定存储位置的书籍
         console.log(id);
         /*

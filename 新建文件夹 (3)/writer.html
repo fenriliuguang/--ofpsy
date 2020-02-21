@@ -14,10 +14,9 @@
     <ul class="layui-nav aaa">
 
         <li class="layui-nav-item">
-            <a href="">{.username}</a>
-            <!--头像还需要吗（笑哭-->
+            <a href="javascript:;">{.username}</a>
             <dl class="layui-nav-child">
-                <dd><a href="javascript:;">修改信息</a></dd>
+                <dd><a id="alter" href="javascript:;">修改密码</a></dd>
                 <dd><a href='javascript:if (confirm("确定退出登录么？")){location="/exit"}'>退出登录</a></dd>
             </dl>
         </li>
@@ -114,11 +113,19 @@
     layui.use('form', function() {
         var form = layui.form;
         form.on('submit(formDemo)', function(data) {
+            console.log(data.field.novelStatus);
+            var ps = new FormData();
+            ps.append('picture', $("#file_a")[0].files[0]);
+            ps.append('novelName', data.field.novelName);
+            ps.append('novelStatus', data.field.novelStatus);
+            ps.append('novelIntroduction', data.field.novelIntroduction);
+            ps.append('novelGenre', data.field.novelGenre);
+
             $.ajax({
                 url: "", //提交新书的地址
                 type: "POST",
                 dataType: "JSON",
-                data: data,
+                data: ps,
                 contentType: false,
                 processData: false,
                 success: function(data) {
@@ -135,5 +142,6 @@
     })
 </script>
 <script src="page_writer.js "></script>
+<script src="alter.js"></script>
 
 </html>

@@ -14,7 +14,7 @@ $(".login").click(
                     '<form id="l" class="form_1 layui-form" action="http://127.0.0.1:8080/login" method="post">' +
                     '<div class="layui-form-item">' +
                     '<div class=""><input class="log_input" type="text" required name="username" placeholder="请输入用户昵称或ID"/>\<\/div>' +
-                    '<div class=""><input class="log_input" type="text" required name="password" placeholder="请输入密码"/>\<\/div>' +
+                    '<div class=""><input class="log_input" type="password" required name="password" placeholder="请输入密码"/>\<\/div>' +
                     '<div class=""><input class="log_submit" type="submit" value="登录"/>\<\/div>' +
                     '</form>\<\/div>\<\/div>' //这里是登录表单
             })
@@ -54,7 +54,7 @@ $(".admin").click(
                         '<form id="admin" class="form_1 layui-form" action="http://127.0.0.1:8080/admin" method="post">' +
                         '<div class="layui-form-item">' +
                         '<div class=""><input class="log_input" type="text" required name="username" placeholder="请输入管理员ID"/>\<\/div>' +
-                        '<div class=""><input class="log_input" type="text" required name="password" placeholder="请输入密码"/>\<\/div>' +
+                        '<div class=""><input class="log_input" type="password" required name="password" placeholder="请输入密码"/>\<\/div>' +
                         '<div class=""><input class="log_submit" type="submit" value="登录"/>\<\/div>' +
                         '</form>\<\/div>\<\/div>' //这里是登录表单
                 })
@@ -84,7 +84,6 @@ $(".admin").click(
     //注册弹窗
 $(".sign").click(
     function() {
-
         layer.open({
                 type: 1,
                 skin: 'sign-w',
@@ -95,8 +94,8 @@ $(".sign").click(
                     '<form id="s" class="form_1 layui-form" action="http://127.0.0.1:8080/register" method="post">' +
                     '<div class="layui-form-item">' +
                     '<div class=""><input class="log_input" type="text" required name="username" placeholder="请输入用户昵称"/>\<\/div>' +
-                    '<div class=""><input id="p1" class="log_input" type="text" lay-verify="pass" required name="password" placeholder="请设置密码"/>\<\/div>' +
-                    '<div class=""><input id="p2" class="log_input" type="text" lay-verify="re_pass" required name="repassword" placeholder="请再次输入密码"/>\<\/div>' +
+                    '<div class=""><input id="p1" class="log_input" type="password" lay-verify="pass" required name="password" placeholder="请设置密码"/>\<\/div>' +
+                    '<div class=""><input id="p2" class="log_input" type="password" lay-verify="re_pass" required name="repassword" placeholder="请再次输入密码"/>\<\/div>' +
                     '<div class=""><input lay-submit lay-filter="aaa" class="log_submit" type="submit" value="注册"/>\<\/div>' +
                     '</form>\<\/div>\<\/div>' //这里是注册表单
             })
@@ -149,12 +148,7 @@ layui.use('form', function() {
             }
         }
     })
-    form.on('submit(aaa)', function(data) {
-        console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
-        console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
-        console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
-            //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-    });
+    form.on('submit(aaa)', function(data) {});
 })
 
 

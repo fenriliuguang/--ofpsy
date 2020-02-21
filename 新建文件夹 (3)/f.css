@@ -318,3 +318,74 @@ a {
 #works {
     background-color: whitesmoke;
 }
+
+#img {
+    float: left;
+    padding: 0 20px 0 0;
+}
+
+#pic {
+    width: 200px;
+    height: 298px;
+}
+
+#books_information {
+    float: left;
+    width: 500px;
+}
+
+#name_b {
+    font-size: 40px;
+    padding: 5px;
+}
+
+#detail {
+    padding: 10px;
+}
+
+.c_img {
+    border-radius: 3px;
+    box-shadow: 4px 4px rgb(185, 185, 185);
+    width: 200px;
+    height: 280px;
+    position: absolute;
+    left: calc(50% - 200px/2);
+}
+
+#rank {
+    margin: 30px 0 0 0;
+    float: left;
+    width: 1160px;
+    padding: 20px;
+    height: 600px;
+    background-color: whitesmoke;
+}
+
+#books_information_x {
+    width: 300px;
+    float: left;
+}
+
+#d_line {
+    float: left;
+    width: 2px;
+    height: 570px;
+    background-color: black;
+}
+
+#others {
+    float: left;
+}
+
+.others {
+    width: 528px;
+    padding: 5px;
+    background-color: white;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: rgb(139, 139, 139);
+}
+
+.others:hover {
+    background-color: thistle;
+}

@@ -10,6 +10,8 @@ layui.use('table', function() {
         height: 700,
         url: 's.json', //数据接口,假数据
         page: true, //开启分页
+        limits: [10],
+
         /*
         返回数据格式：json
         {
@@ -96,13 +98,14 @@ layui.use('table', function() {
         } else if (layEvent === 'edit') {
             console.log("误触");
             $(this).hide();
+            console.log(data.id);
             $.post({
                 url: "/" //编辑数据库地址
             }, {
                 change_id: data.id, //需要修改数据的书的id
                 change_genre: data.novel_genre,
                 change_state: data.novel_state,
-                change_introduction: data.novel_introduction,
+                change_introduction: data.novel_introduction
             }, function(data) {
                 if (data.code == 1) {
                     alert("修改成功");
